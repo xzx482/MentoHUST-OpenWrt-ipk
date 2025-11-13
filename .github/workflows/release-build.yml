@@ -51,7 +51,7 @@ jobs:
       - name: Building packages
         uses: openwrt/gh-action-sdk@main
         env:
-          ARCH: ${{ matrix.arch }}-24.10
+          ARCH: ${{ matrix.arch }}-24.10.3
           FEEDNAME: packages_ci
           PACKAGES: mentohust
           NO_REFRESH_CHECK: true
