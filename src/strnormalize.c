@@ -16604,6 +16604,8 @@ int gbk_to_utf8(const char *from, unsigned int from_len, char **to, unsigned int
 		return -1;
 	}
 
+	const unsigned char *pFrom = (const unsigned char *)from;
+
 	for (i_from = 0; i_from < from_len; i_from ++)
 	{
 		if (flag)
@@ -16630,7 +16632,7 @@ int gbk_to_utf8(const char *from, unsigned int from_len, char **to, unsigned int
 				result[i_to ++] = tmp;
 			}
 		}
-		else if (from[i_from] < 0)
+		else if (pFrom[i_from] > 0x80)
 			flag = 1;
 		else
 			result[i_to ++] = from[i_from];
@@ -16703,6 +16705,4 @@ int utf8_to_gbk(const char *from, unsigned int from_len, char **to, unsigned int
 	*to_len = i_to;
 	return 0;
 }
-
-// vim: foldmethod=marker
 

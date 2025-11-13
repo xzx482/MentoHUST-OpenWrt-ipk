@@ -201,7 +201,7 @@ static char *gbk2utf(const char *gbksrc, size_t gbklen)	/* GBK转UTF－8 */
 		 所以这样申请是足够的了，要记得释放 */
 	str_normalize_init();
 
-	size_t utf8len = gbklen * 3 + 1;
+	unsigned int utf8len = gbklen * 3 + 1;
 	char *utf8dst = (char *)malloc(utf8len);
 
 	memset(utf8dst,0,utf8len);
