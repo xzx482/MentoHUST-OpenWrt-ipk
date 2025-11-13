@@ -11,7 +11,6 @@
 #include "config.h"
 #else
 static const char *VERSION = "0.3.1";
-static const char *PACKAGE_BUGREPORT = "http://code.google.com/p/mentohust/issues/list";
 #endif
 
 #include "myconfig.h"
@@ -154,10 +153,8 @@ void initConfig(int argc, char **argv)
 	int exitFlag = 0;	/* 0Nothing 1退出 2重启 */
 	int daemonMode = D_DAEMONMODE;	/* 是否后台运行 */
 
-	printf("\n欢迎使用MentoHUST\t版本: %s\n"
-			"Copyright (C) 2009-2010 HustMoon Studio\n"
-			"人到华中大，有甜亦有辣。明德厚学地，求是创新家。\n"
-			"Bug report to %s\n\n", VERSION, PACKAGE_BUGREPORT);
+	printf("\n欢迎使用MentoHUST\t版本: %s\n",
+			VERSION);
 	saveFlag = (readFile(&daemonMode)==0 ? 0 : 1);
 	readArg(argc, argv, &saveFlag, &exitFlag, &daemonMode);
 #ifndef NO_NOTIFY
