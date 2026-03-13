@@ -51,7 +51,7 @@ jobs:
       - name: Building packages
         uses: openwrt/gh-action-sdk@main
         env:
-          ARCH: ${{ matrix.arch }}-24.10.3
+          ARCH: ${{ matrix.arch }}-25.12.0
           FEEDNAME: packages_ci
           PACKAGES: mentohust
           NO_REFRESH_CHECK: true
@@ -61,7 +61,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.arch }}
-          path: bin/packages/${{ matrix.arch }}/packages_ci/*.ipk
+          path: bin/packages/${{ matrix.arch }}/packages_ci/*.*pk
 
       #- name: Upload packages
       #  uses: ncipollo/release-action@v1
@@ -69,4 +69,4 @@ jobs:
       #    token: ${{ secrets.GITHUB_TOKEN }}
       #    allowUpdates: true
       #    replacesArtifacts: true
-      #    artifacts: "bin/packages/${{ matrix.arch }}/packages_ci/*.ipk"
+      #    artifacts: "bin/packages/${{ matrix.arch }}/packages_ci/*.*pk"
